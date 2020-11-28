@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Snackbar } from '@material-ui/core';
 import Header from './components/Header';
 import SendTweet from './components/SendTweet';
+import ListTweets from './components/ListTweets';
 
 import { TWEETS_STORAGE } from './utils/constans';
 
@@ -23,13 +24,16 @@ function App() {
 
 	}, [] );
 
-	console.log( allTweets );
-
 	return (
 		<Container className="tweets-simulator" maxWidth={ false }>
 			<Header />
+
 			<SendTweet
 				setToastProps={ setToastProps }
+				allTweets={ allTweets }
+			/>
+
+			<ListTweets
 				allTweets={ allTweets }
 			/>
 
