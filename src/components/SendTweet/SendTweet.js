@@ -3,6 +3,7 @@ import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import moment from 'moment';
 import ModalContainer from '../ModalContainer';
+import FormSendTweet from '../FormSendTweet';
 
 import './SendTweet.scss';
 
@@ -29,7 +30,7 @@ const SendTweet = () => {
                 isOpenModal={ isOpenModal }
                 closeModal={ closeModal }
             >
-                <p>Contenido del modal</p>
+                <FormSendTweet />
             </ModalContainer>
         </div>
     );
