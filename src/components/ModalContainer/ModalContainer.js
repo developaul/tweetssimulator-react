@@ -18,8 +18,8 @@ const ModalContainer = ({ isOpenModal, closeModal, children }) => {
 };
 
 ModalContainer.propTypes = {
-    isOpenModal: PropTypes.func.isRequired,
-    closeModa: PropTypes.func.isRequired
+    isOpenModal: PropTypes.bool.isRequired,
+    closeModal: PropTypes.func.isRequired
 }
 
 export default ModalContainer;
