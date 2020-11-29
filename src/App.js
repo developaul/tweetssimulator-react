@@ -17,12 +17,22 @@ function App() {
 
 	const [ allTweets, setAllTweets ] = useState( [] );
 
+	const [ reloadTweets, setReloadTweets ] = useState( false );
+
 	useEffect( () => {
 
 		const allTweetsStorage = JSON.parse( localStorage.getItem( TWEETS_STORAGE ) ) || [];
 		setAllTweets( allTweetsStorage );
+		setReloadTweets( false );
 
-	}, [] );
+	}, [reloadTweets] );
+
+	const deleteTweet = ( index ) => {
+		allTweets.splice( index, 1 );
+		setAllTweets( allTweets );
+		localStorage.setItem( TWEETS_STORAGE, JSON.stringify( allTweets ) );
+		setReloadTweets( true );
+	}
 
 	return (
 		<Container className="tweets-simulator" maxWidth={ false }>
@@ -35,6 +45,7 @@ function App() {
 
 			<ListTweets
 				allTweets={ allTweets }
+				deleteTweet={ deleteTweet }
 			/>
 
 			<Snackbar

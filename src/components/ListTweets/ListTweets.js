@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tweet from '../Tweet';
 
 import { Grid } from '@material-ui/core';
 
+import Tweet from '../Tweet';
+
 import './ListTweets.scss';
 
-const ListTweets = ({ allTweets }) => {
+
+const ListTweets = ({ allTweets, deleteTweet }) => {
 
     if( allTweets.length === 0 ) {
         return (
@@ -17,30 +19,30 @@ const ListTweets = ({ allTweets }) => {
     }
 
     return (
-        <Grid
+        <div
             className="list-tweets"
-            container
-            spacing={ 3 }
         >
             {
                 allTweets.map( ( tweet, index ) => (
-                    <Grid
+                    <div
+                        className="list-tweets__tweet"
                         key={ index }
-                        item xs={ 4 }
                     >
                         <Tweet
                             { ...tweet }
                             index={ index }
+                            deleteTweet={ deleteTweet }
                         />
-                    </Grid>
+                    </div>
                 ))
             }
-        </Grid>
+        </div>
     );
 };
 
 ListTweets.propTypes = {
-    allTweets: PropTypes.array.isRequired
+    allTweets: PropTypes.array.isRequired,
+    deleteTweet: PropTypes.func.isRequired
 };
 
 export default ListTweets;

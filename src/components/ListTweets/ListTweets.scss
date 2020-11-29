@@ -1,10 +1,20 @@
 .list-tweets {
     
     margin-top: 150px !important;
-    
+
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax( 290px, 1fr ) );
+    grid-gap: 1rem;
+
     &-empty {
         margin-top: 150px !important;
         text-align: center;
         color: white;
     }
+
+    &__tweet {
+        width: 300px;
+        margin: 0 auto;
+    }
+
 }

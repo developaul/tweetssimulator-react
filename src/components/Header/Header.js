@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TwitterLogo from '../../assets/img/twitter-logo.png';
+
 import './Header.scss';
 
 const Header = () => (
